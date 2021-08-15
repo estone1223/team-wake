@@ -15,7 +15,7 @@ class Clan(models.Model):
 class Member(models.Model):
     name = models.CharField('名前', max_length=12, blank=False)
     is_Sniper = models.BooleanField('SRか', default=False)
-    clan = models.ForeignKey(Clan, on_delete=models.SET_NULL)
+    clan = models.ForeignKey(Clan, on_delete=models.SET_NULL, null=True)
     memo = models.TextField('メモ', max_length=255, null=True)
 
     class Meta:
