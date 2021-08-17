@@ -9,5 +9,5 @@ urlpatterns = [
     path('top/', top, name='top'),
     path('group/', include('group.urls'), name='group'),
     path('admin/', admin.site.urls),
-    
+    path('accounts/', include('accounts.urls')),
 ]

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'group.apps.GroupConfig',
     'accounts.apps.AccountsConfig',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
