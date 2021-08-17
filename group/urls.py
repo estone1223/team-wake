@@ -1,7 +1,6 @@
 from django.urls import path
-
-app_name = 'group'
+from .views import top
 
 urlpatterns = [
-    # path('/', , name='top'),
+    
 ]

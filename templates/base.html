@@ -20,7 +20,7 @@
         <ul class="navbar-nav mr-md-2">
           {% if user.is_authenticated %}
             <li class="nav-item">
-              {% comment %} <a class="nav-link" href="{% url 'logout' %}">ログアウト</a> {% endcomment %}
+              <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
             </li>
           {% else %}
             <li class="nav-item">
