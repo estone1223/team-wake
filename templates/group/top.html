@@ -4,10 +4,10 @@
   <div class="welcome">
     <h1 class="title">ようこそ、Team-Wakeへ！</h1>
     <p class="subtitle">チームをわけわけしましょう！</p>
-    <a class="btn btn-primary" href="{% url 'member_new' %}">メンバーを登録する</a>
+    {% comment %} <a class="btn btn-primary" href="{% url 'member_new' %}">メンバーを登録する</a> {% endcomment %}
   </div>
 
-  {% if snippets %}
+  {% if members %}
     <table class="table">
       <thead>
         <tr>
@@ -31,6 +31,6 @@
       </tbody>
     </table>
   {% else %}
-    <p>スニペットはまだ投稿されていません.</p>
+    <p>メンバーはまだ登録されていません.</p>
   {% endif %}
 {% endblock main %}

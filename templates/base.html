@@ -9,7 +9,7 @@
     <title>Team-Wake</title>
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-    <link rel="stylesheet" href="{% static 'snippets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'group/css/style.css' %}">
     {% block exheader %}{% endblock exheader%}
   </head>
 
@@ -20,7 +20,7 @@
         <ul class="navbar-nav mr-md-2">
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
+              {% comment %} <a class="nav-link" href="{% url 'logout' %}">ログアウト</a> {% endcomment %}
             </li>
           {% else %}
             <li class="nav-item">
