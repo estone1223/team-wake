@@ -1,7 +1,8 @@
-from group.models import Clan, Member
-from django.contrib import admin
+# from group.models import Member, Wake, MemberWakes
+# from django.contrib import admin
 
-# Register your models here.
+# # Register your models here.
 
-admin.site.register(Member)
-admin.site.register(Clan)
+# admin.site.register(Member)
+# admin.site.register(Wake)
+# admin.site.register(MemberWakes)
