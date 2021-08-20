@@ -4,33 +4,34 @@
   <div class="welcome">
     <h1 class="title">ようこそ、Team-Wakeへ！</h1>
     <p class="subtitle">チームをわけわけしましょう！</p>
-    <a class="btn btn-color" href="">Wakesを登録する</a>
+    {% if user.is_authenticated %}
+      <a class="btn btn-color" href="">Wakesを登録する</a>
+    {% else %}
+      <a class="btn btn-color" href="">ログイン</a>
+    {% endif %}
+    
   </div>
 
-  {% if members %}
-    <table class="table">
-      <thead>
-        <tr>
-          <th>投稿者</th>
-          <th>投稿日</th>
-          <th>タイトル</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for snippet in snippets %}
+  {% if user.is_authenticated %}
+    {% if wakes %}
+      <table class="table">
+        <thead>
           <tr>
-            <th>{{ snippet.created_by.username }}</th>
-            <th>{{ snippet.created_at }}</th>
-            <th>
-              <a href="{% url 'snippet_detail' snippet.id %}">
-                {{ snippet.title }}
-              </a>
-            </th>
+            <th>Wake名</th>
+            <th>概要</th>
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  {% else %}
-    <p class="message">グループはまだありません.</p>
+        </thead>
+        <tbody>
+          {% for wake in wakes %}
+            <tr>
+              <th>{{ wake.name }}</th>
+              <th></th>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="message">Wakeはまだありません.</p>
+    {% endif %}
   {% endif %}
 {% endblock main %}
