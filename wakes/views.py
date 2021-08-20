@@ -6,6 +6,6 @@ from django.shortcuts import render
 def top(request):
     wakes = Wake.objects.all()
     context = {
-      'wakes': wakes,
+        'wakes': wakes,
     }
     return render(request, 'wakes/top.html', context)
