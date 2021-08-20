@@ -1,4 +1,4 @@
-from accounts.models import Wake
+from wakes.models import Wake
 from django.shortcuts import render
 
 # Create your views here.
