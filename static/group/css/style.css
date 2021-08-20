@@ -31,10 +31,8 @@ li {
   text-align: center;
 }
 
-.btn-new {
+.btn-color {
   background-color: aliceblue;
-  margin-bottom: -12px;
-  margin-top: 8px;
 }
 
 .btn-color:hover {
