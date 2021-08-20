@@ -4,15 +4,15 @@
   <div class="welcome">
     <h1 class="title">ようこそ、Team-Wakeへ！</h1>
     <p class="subtitle">チームをわけわけしましょう！</p>
-    {% comment %} {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
       <a class="btn btn-color" href="">Wakesを登録する</a>
     {% else %}
       <a class="btn btn-color" href="">ログイン</a>
-    {% endif %} {% endcomment %}
+    {% endif %}
     
   </div>
 
-  {% comment %} {% if user.is_authenticated %}
+  {% if user.is_authenticated %}
     {% if wakes %}
       <table class="table">
         <thead>
@@ -33,5 +33,5 @@
     {% else %}
       <p class="message">Wakeはまだありません.</p>
     {% endif %}
-  {% endif %} {% endcomment %}
+  {% endif %}
 {% endblock main %}
