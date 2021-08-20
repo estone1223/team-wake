@@ -1,0 +1,44 @@
+
+main {
+  padding: 2rem 0;
+}
+
+.welcome {
+  color: white;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  background-color: #484e60;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.snippet-date {
+  margin-bottom: 1rem;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+li {
+  margin-top: 5px;
+  border-bottom: 1px dotted black;
+  color: rgb(0, 0, 0);
+}
+
+.message {
+  text-align: center;
+}
+
+.btn-color {
+  background-color: aliceblue;
+}
+
+.btn-color:hover {
+  opacity: 0.8;
+}
+
+.nav-item {
+  display: flex;
+}
