@@ -3,4 +3,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def top(request):
-    return render(request, 'group/top.html')
+    return render(request, 'wakes/top.html')
