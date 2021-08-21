@@ -1,3 +1,6 @@
+body {
+  background-color: rgb(241, 241, 237);
+}
 
 main {
   padding: 2rem 0;
@@ -78,4 +81,47 @@ main {
 
 .description {
   text-align: center;
+}
+
+/* detail */
+
+.content {
+  height: 400px;
+  width: auto;
+  display: flex;
+  margin-left: 1%;
+  text-align: center;
+  line-height: 240%;
+}
+
+.team-ul {
+  list-style: none;
+  padding-left: 0;
+  padding: 0 15px;
+}
+
+.member-ul {
+  list-style: none;
+  padding-left: 0;
+  padding: 0 15px;
+}
+
+.team-ul > li {
+  display: block;
+  border-bottom: 1px solid #484e60;
+}
+
+.team-a {
+  width: 33%;
+  background-color: rgb(238, 150, 150);
+}
+
+.member {
+  width: 33%;
+  background-color: rgb(236, 238, 241);
+}
+
+.team-b {
+  width: 33%;
+  background-color: rgb(144, 202, 241);
 }

@@ -5,4 +5,38 @@
     <h1 class="title">{{ wake.name }}</h1>
     <p class="subtitle">{{ wake.description }}</p>
   </div>
+  <div class="content">
+    <div class="team-a">
+      <ul class="team-ul">
+      <li>team A</li>
+      <li>a</li>
+      <li>a</li>
+      <li>a</li>
+      <li>a</li>
+      <li>a</li>
+      <li>a</li>
+      </ul>
+    </div>
+    <div class="member">
+      {% if wake.member %}
+        <ul class="member-ul">
+          <li>member</li>
+          {% for member in members %}
+            <li>{{ wake.member }}</li>
+          {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+    <div class="team-b">
+      <ul class="team-ul">
+      <li>team B</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      </ul>
+    </div>
+  </div>
 {% endblock main %}

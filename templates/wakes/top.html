@@ -15,7 +15,7 @@
   {% if user.is_authenticated %}
     {% if wakes %}
       <ul class="wakes-list">
-        <li class="wakes-header">Wake名</li>
+        <li class="wakes-header">Wakes一覧</li>
         {% for wake in wakes %}
           {% if wake.created_by.id == user.id %}
             <li>
