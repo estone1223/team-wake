@@ -8,19 +8,13 @@
   <div class="content">
     <div class="team-a">
       <ul class="team-ul">
-      <li>team A</li>
-      <li>a</li>
-      <li>a</li>
-      <li>a</li>
-      <li>a</li>
-      <li>a</li>
-      <li>a</li>
+      <li class="content-header">team A</li>
       </ul>
     </div>
     <div class="member">
       {% if wake.member %}
         <ul class="member-ul">
-          <li>member</li>
+          <li class="content-header">member</li>
           {% for member in members %}
             <li>{{ wake.member }}</li>
           {% endfor %}
@@ -29,13 +23,13 @@
     </div>
     <div class="team-b">
       <ul class="team-ul">
-      <li>team B</li>
+      <li class="content-header">team B</li>
       <li>b</li>
       <li>b</li>
       <li>b</li>
       <li>b</li>
       <li>b</li>
-      <li>b</li>
+      <li>b to a</li>
       </ul>
     </div>
   </div>
