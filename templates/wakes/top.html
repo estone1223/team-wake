@@ -14,26 +14,18 @@
 
   {% if user.is_authenticated %}
     {% if wakes %}
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Wake名</th>
-            <th class="description">概要</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for wake in wakes %}
-            {% if wake.created_by.id == user.id %}
-              <a href="">
-                <tr>
-                  <th>{{ wake.name }}</th>
-                  <th class="description">{{ wake.description }}</th>
-                </tr>
+      <ul class="wakes-list">
+        <li class="wakes-header">Wake名</li>
+        {% for wake in wakes %}
+          {% if wake.created_by.id == user.id %}
+            <li>
+              <a href="{% url 'wake_detail' wake.id %}" class="wake">
+                {{ wake.name }}
               </a>
-            {% endif %}
-          {% endfor %}
-        </tbody>
-      </table>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
     {% else %}
       <p class="message">Wakeはまだありません.</p>
     {% endif %}

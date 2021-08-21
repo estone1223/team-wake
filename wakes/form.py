@@ -8,4 +8,4 @@ from wakes.models import Wake
 class WakeForm(forms.ModelForm):
     class Meta:
         model = Wake
-        fields = ('name', 'description', 'member')
+        fields = ('name', 'description')
