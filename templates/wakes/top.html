@@ -23,10 +23,12 @@
         </thead>
         <tbody>
           {% for wake in wakes %}
+            {% if wake.created_by.id == user.id %}
             <tr>
               <th>{{ wake.name }}</th>
-              <th></th>
+              <th>{{ wake.description }}</th>
             </tr>
+            {% endif %}
           {% endfor %}
         </tbody>
       </table>
