@@ -1,9 +1,9 @@
 from django import forms
 from django.http.response import HttpResponseForbidden
 from wakes.form import WakeForm
-from wakes.models import Wake
+from wakes.models import Member, Wake
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 # Create your views here.
@@ -18,8 +18,9 @@ def top(request):
 
 @login_required
 def wake_new(request):
+    user_id = request.user.id
     if request.method == 'POST':
-        form = WakeForm(request.POST)
+        form = WakeForm(request.POST,)
         if form.is_valid():
             wake = form.save(commit=False)
             wake.created_by = request.user
