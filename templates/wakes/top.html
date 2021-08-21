@@ -7,9 +7,9 @@
     {% if user.is_authenticated %}
       <a class="btn btn-color" href="">Wakesを登録する</a>
     {% else %}
-      <a class="btn btn-color" href="">ログイン</a>
+      <a class="btn btn-color" href="{% url 'login' %}">ログイン</a>
     {% endif %}
-    
+
   </div>
 
   {% if user.is_authenticated %}
@@ -18,16 +18,18 @@
         <thead>
           <tr>
             <th>Wake名</th>
-            <th>概要</th>
+            <th class="description">概要</th>
           </tr>
         </thead>
         <tbody>
           {% for wake in wakes %}
             {% if wake.created_by.id == user.id %}
-            <tr>
-              <th>{{ wake.name }}</th>
-              <th>{{ wake.description }}</th>
-            </tr>
+              <a href="">
+                <tr>
+                  <th>{{ wake.name }}</th>
+                  <th class="description">{{ wake.description }}</th>
+                </tr>
+              </a>
             {% endif %}
           {% endfor %}
         </tbody>
