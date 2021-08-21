@@ -5,7 +5,7 @@
     <h1 class="title">ようこそ、Team-Wakesへ！</h1>
     <p class="subtitle">チームをわけわけしましょう！</p>
     {% if user.is_authenticated %}
-      <a class="btn btn-color" href="">Wakesを登録する</a>
+      <a class="btn btn-color" href="{% url 'wake_new' %}">Wakesを登録する</a>
     {% else %}
       <a class="btn btn-color" href="{% url 'login' %}">ログイン</a>
     {% endif %}

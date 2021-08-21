@@ -13,6 +13,16 @@ main {
   flex-direction: column;
 }
 
+.sub-welcome {
+  color: white;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  background-color: #484e60;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .snippet-date {
   margin-bottom: 1rem;
 }
