@@ -2,40 +2,34 @@
 {% load static %}
 
 {% block exheader %}
-<script src="{% static 'wakes/js/main.js' %}"></script>
+  <script src="{% static 'wakes/js/main.js' %}"></script>
 {% endblock exheader %}
 
 {% block main %}
   <div class="sub-welcome">
-    <h1 class="title">{{ wake.name }}</h1>
-    <p class="subtitle">{{ wake.description }}</p>
+    <h1 class="title">Team-Wakes</h1>
+    <p class="subtitle">改行区切りでメンバーを入力してください</p>
   </div>
   <div class="content">
     <div class="team-a">
-      <ul class="team-ul" id="ul-team-a">
-      <li class="content-header">team A</li>
-      </ul>
+      <h2 class="content-head">team A</h2>
+      <ol id="team_a" class="team-container">
+      
+      </ol>
     </div>
+
     <div class="member">
-      {% if wake.member %}
-        <ul class="member-ul">
-          <li class="content-header">member</li>
-          {% for member in members %}
-            <li>{{ wake.member }}</li>
-          {% endfor %}
-        </ul>
-    {% endif %}
+      <h2 class="content-head">member</h2>
+      <form action="" method="post">
+        {% csrf_token %}
+        <textarea name="classic-member" id="classic-member" rows="14" class="classic-member">{{ wake.member }}</textarea>
+        <button type="button" value="Wake!" class="btn btn-color btn-classic" id="try-js" onclick="wakeTeam()">Wake!</button>
+      </form>
     </div>
+
     <div class="team-b">
-      <ul class="team-ul" id="ul-team-b">
-      <li class="content-header">team B</li>
-      <li>b</li>
-      <li>b</li>
-      <li>b</li>
-      <li>b</li>
-      <li>b</li>
-      <li class="member-list"><button>b to a</button></li>
-      </ul>
+      <h2 class="content-head">team B</h2>
+      <ol id="team_b" class="team-container"></ol>
     </div>
   </div>
 {% endblock main %}

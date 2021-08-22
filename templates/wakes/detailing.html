@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block exheader %}
+<script src="{% static 'wakes/js/main.js' %}"></script>
+{% endblock exheader %}
+
+{% block main %}
+  <div class="sub-welcome">
+    <h1 class="title">{{ wake.name }}</h1>
+    <p class="subtitle">{{ wake.description }}</p>
+  </div>
+  <div class="content">
+    <div class="team-a">
+      <ul class="team-ul" id="ul-team-a">
+      <li class="content-header">team A</li>
+      </ul>
+    </div>
+    <div class="member">
+      {% if wake.member %}
+        <ul class="member-ul">
+          <li class="content-header">member</li>
+          {% for member in members %}
+            <li>{{ wake.member }}</li>
+          {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+    <div class="team-b">
+      <ul class="team-ul" id="ul-team-b">
+      <li class="content-header">team B</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li>b</li>
+      <li class="member-list"><button>b to a</button></li>
+      </ul>
+    </div>
+  </div>
+{% endblock main %}

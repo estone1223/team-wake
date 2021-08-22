@@ -86,7 +86,7 @@ main {
 /* detail */
 
 .content {
-  height: 500px;
+  height: 430px;
   width: auto;
   display: flex;
   margin-left: 1%;
@@ -157,7 +157,7 @@ main {
 textarea {
   line-height: 250%;
   width: 90%;
-  height: 470px;
+  height: 380px;
   border: none;
   resize: none;
   text-align: center;
