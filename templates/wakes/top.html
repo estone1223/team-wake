@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main %}
   <div class="welcome">
@@ -29,5 +30,9 @@
     {% else %}
       <p class="message">Wakeはまだありません.</p>
     {% endif %}
+  {% else %}
+    <div class="welcome">
+      <a class="btn btn-color btn-classic" href="{% url 'wake_classic' %}">簡易版を利用する</a>
+    </div>
   {% endif %}
 {% endblock main %}

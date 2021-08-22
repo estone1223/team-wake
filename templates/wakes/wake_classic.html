@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+  <div class="sub-welcome">
+    <h1 class="title">簡易版へようこそ</h1>
+    <p class="subtitle">改行区切りでメンバーを入力してください</p>
+  </div>
+  <div class="content">
+    <div class="team-a">
+      <ul class="team-ul" id="ul-team-a">
+      <li class="content-header">team A</li>
+      </ul>
+    </div>
+    <div class="member">
+    <ul class="member-ul">
+      <li class="content-header">member</li>
+      </ul>
+      <textarea name="classic-member" rows="10" class="classic-member"></textarea>
+    </div>
+    <div class="team-b">
+      <ul class="team-ul" id="ul-team-b">
+      <li class="content-header">team B</li>
+      </ul>
+    </div>
+  </div>
+{% endblock main %}

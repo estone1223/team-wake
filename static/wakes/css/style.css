@@ -139,3 +139,18 @@ main {
 .team-b {
   width: 33%;
 }
+
+.btn-classic {
+  margin: 0 auto;
+}
+
+.classic-member {
+
+  background-color: rgb(241, 241, 237);
+}
+
+textarea {
+  line-height: 150%;
+  width: 90%;
+  height: 88%;
+}

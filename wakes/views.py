@@ -55,3 +55,6 @@ def wake_detail(request, wake_id):
     }
 
     return render(request, 'wakes/wake_detail.html', context)
+
+def wake_classic(request):
+    return render(request, 'wakes/wake_classic.html')

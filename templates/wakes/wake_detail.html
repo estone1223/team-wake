@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block exheader %}
+<script src="{% static 'wakes/js/main.js' %}"></script>
+{% endblock exheader %}
 
 {% block main %}
   <div class="sub-welcome">
@@ -7,7 +12,7 @@
   </div>
   <div class="content">
     <div class="team-a">
-      <ul class="team-ul">
+      <ul class="team-ul" id="ul-team-a">
       <li class="content-header">team A</li>
       </ul>
     </div>
@@ -22,14 +27,14 @@
     {% endif %}
     </div>
     <div class="team-b">
-      <ul class="team-ul">
+      <ul class="team-ul" id="ul-team-b">
       <li class="content-header">team B</li>
       <li>b</li>
       <li>b</li>
       <li>b</li>
       <li>b</li>
       <li>b</li>
-      <li>b to a</li>
+      <li class="member-list"><button>b to a</button></li>
       </ul>
     </div>
   </div>
