@@ -12,24 +12,21 @@
   </div>
   <div class="content">
     <div class="team-a">
-      <ul class="team-ul" id="list-c-a">
-        <li class="content-header">team A</li>
-      </ul>
+      <h2 class="content-head">team A</h2>
+      <ol id="team_a">
+      </ol>
     </div>
     <div class="member">
-      <ul class="member-ul">
-        <li class="content-header">member</li>
-      </ul>
+      <h2 class="content-head">member</h2>
       <form action="" method="post">
         {% csrf_token %}
         <textarea name="classic-member" id="classic-member" rows="14" class="classic-member"></textarea>
-        <button type="submit" value="Wake!" class="btn btn-color btn-classic" id="try-js" onclick="art()">Wake!</button>
+        <button value="Wake!" class="btn btn-color btn-classic" id="try-js" onclick="wakeTeam()">Wake!</button>
       </form>
     </div>
     <div class="team-b">
-      <ul class="team-ul" id="list-c-b">
-        <li class="content-header">team B</li>
-      </ul>
+      <h2 class="content-head">team B</h2>
+      <ol id="team_b"></ol>
     </div>
   </div>
 {% endblock main %}

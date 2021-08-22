@@ -1,37 +1,44 @@
-"use strict";
-{
-  const team_a = document.getElementById('ul-team-a');
-  const team_b = document.getElementById('ul-team-b');
-  const member_list = document.getElementsByClassName('member-list');
 
-  function memberClick() {
-    if (member_list in team_a) {
-      team_b.append(member_list);
-    } else {
-      team_a.append(member_list);
+
+
+
+function wakeTeam() {
+  let team_a = document.getElementById('team_a');
+  let team_b = document.getElementById('team_b');
+
+  team_a.innerHTML = '';
+  team_b.innerHTML = '';
+
+  let member_list = document.getElementById('classic-member');
+  let member = member_list.value.split(/\n/);
+
+  let user_list = [];
+
+  for (let i = 0, len = member.length; i < len; i++) {
+    if (member[i] != '') {
+      user_list.push(member[i]);
     }
   }
 
+  for (let i = 0, len = user_list.length; i < len; i++) {
+    user_list[i] = [user_list[i], Math.random()];
+    }
 
-// function wakeTeam() {
-//   let list_a_element = document.getElementById('list-c-a');
-//   let list_b_element = document.getElementById('list-c-b');
-
-//   let member = document.getElementById('classic-member');
-//   let member = member.split(/\n/);
-
-//   console.log(member);
-//   alert('hihi');
-// }
-
-// let try_js = document.getElementById('try-js');
-
-// try_js.click(wakeTeam());
-
-function art() {
-  alert('konbanha');
-}
+  user_list.sort(function(a, b){return a[1] - b[1];});
+  for (let i = 0, len = user_list.length; i < len; i++) {
+    user_list[i] = user_list[i][0];
+  }
 
 
+  for (let i = 0, len = user_list.length; i < len; i ++) {
+    if (i % 2 == 1) {
+      team_a.insertAdjacentHTML("beforeend", "<li class='member'>" + user_list[i] + "</li>");
+    } else {
+      team_b.insertAdjacentHTML("beforeend", "<li class='member'>" + user_list[i] + "</li>");
+    }
+  }
+  }
 
-}
+
+
+

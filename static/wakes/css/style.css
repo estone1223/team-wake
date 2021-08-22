@@ -94,8 +94,13 @@ main {
   line-height: 240%;
 }
 
-.content-header {
+.content-head {
+  display: inline-block;
+  font-size: 16px;
   font-weight: bold;
+  padding: 0 42px;
+  line-height: 240%;
+  border-bottom: 1px solid #484e60;
 }
 
 .team-ul {
