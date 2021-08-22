@@ -32,9 +32,9 @@ function wakeTeam() {
 
   for (let i = 0, len = user_list.length; i < len; i ++) {
     if (i % 2 == 1) {
-      team_a.insertAdjacentHTML("beforeend", "<li class='member'>" + user_list[i] + "</li>");
+      team_a.insertAdjacentHTML("beforeend", "<li class='team-member'>" + user_list[i] + "</li>");
     } else {
-      team_b.insertAdjacentHTML("beforeend", "<li class='member'>" + user_list[i] + "</li>");
+      team_b.insertAdjacentHTML("beforeend", "<li class='team-member'>" + user_list[i] + "</li>");
     }
   }
   }

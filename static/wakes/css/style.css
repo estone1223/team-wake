@@ -86,7 +86,7 @@ main {
 /* detail */
 
 .content {
-  height: 400px;
+  height: 500px;
   width: auto;
   display: flex;
   margin-left: 1%;
@@ -95,10 +95,10 @@ main {
 }
 
 .content-head {
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-weight: bold;
-  padding: 0 42px;
+  margin: 0 24px;
   line-height: 240%;
   border-bottom: 1px solid #484e60;
 }
@@ -125,11 +125,7 @@ main {
   border-bottom: 1px solid #484e60;
 }
 
-.team-ul > li:not(.content-header):hover {
-  cursor: pointer;
-  background-color: #484e60;
-  color: aliceblue;
-}
+
 
 .team-a {
   width: 33%;
@@ -159,9 +155,17 @@ main {
 }
 
 textarea {
-  line-height: 150%;
+  line-height: 250%;
   width: 90%;
-  height: 88%;
+  height: 470px;
   border: none;
   resize: none;
+  text-align: center;
+}
+
+.team-member {
+  list-style: none;
+  padding: 0 15px;
+  margin-right: 30px;
+  line-height: 300%;
 }
