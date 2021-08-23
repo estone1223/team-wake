@@ -177,6 +177,24 @@ textarea {
   line-height: 300%;
 }
 
-.member-container {
-  height: 390px;
+
+/* member */
+
+.all-member-list {
+width: 50%;
+border-right: 1px solid #484e60;
+height: 100%;
+overflow-y: scroll;
+}
+
+.function-container {
+width: 50%;
+border-left: 1px solid #484e60;
+}
+
+.btn-function {
+  width: 255px;
+  margin: 50px auto 25px auto;
+  background-color: #484e60;
+  color: rgb(241, 241, 237);
 }

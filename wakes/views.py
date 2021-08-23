@@ -1,6 +1,6 @@
 from django import forms
 from django.http.response import HttpResponseForbidden
-from wakes.form import WakeForm
+from wakes.form import WakeForm, MemberForm
 from wakes.models import Member, Wake
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -18,7 +18,6 @@ def top(request):
 
 @login_required
 def wake_new(request):
-    user_id = request.user.id
     if request.method == 'POST':
         form = WakeForm(request.POST,)
         if form.is_valid():
@@ -61,3 +60,27 @@ def wake_detail(request, wake_id):
 
 def wake_classic(request):
     return render(request, 'wakes/wake_classic.html')
+
+
+def member(request):
+    user_id = request.user.id
+    members = Member.objects.filter(created_by_id=user_id)
+    context= {
+        'members': members
+    }
+
+    return render(request, 'wakes/member.html', context)
+
+# @login_required
+# def member_new(request):
+#     if request.method == 'POST':
+#         form = MemberForm(request.POST,)
+#         if form.is_valid():
+#             member = form.save(commit=False)
+#             member.created_by = request.user
+#             member.save()
+#             return redirect(top)
+#     else:
+#         form = MemberForm()
+#     return render(request, 'wakes/member.html', {'form': form})
+
