@@ -13,18 +13,19 @@
   <div class="content">
     <div class="team-a">
       <h2 class="content-head">team A</h2>
-      <ol id="team_a" class="team-container">
-      
-      </ol>
+      <ol id="team_a" class="team-container"></ol>
     </div>
 
     <div class="member">
       <h2 class="content-head">member</h2>
-      <form action="" method="post">
-        {% csrf_token %}
-        <textarea name="classic-member" id="classic-member" rows="14" class="classic-member">{{ wake.member }}</textarea>
-        <button type="button" value="Wake!" class="btn btn-color btn-classic" id="try-js" onclick="wakeTeam()">Wake!</button>
-      </form>
+      <div class="member-container">
+        <ul>
+          {% for member in members %}
+            <li class="member-list">{{ member.name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <button type="button" value="Wake!" class="btn btn-color btn-classic" id="try-js" onclick="wakeTeam()">Wake!</button>
     </div>
 
     <div class="team-b">

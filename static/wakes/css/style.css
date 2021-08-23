@@ -169,3 +169,14 @@ textarea {
   margin-right: 30px;
   line-height: 300%;
 }
+
+.member-list {
+  list-style: none;
+  padding: 0 15px;
+  margin-right: 30px;
+  line-height: 300%;
+}
+
+.member-container {
+  height: 390px;
+}

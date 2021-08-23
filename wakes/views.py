@@ -47,11 +47,14 @@ def wake_edit(request, wake_id):
 
 @login_required
 def wake_detail(request, wake_id):
+    user_id = request.user.id
     wake = get_object_or_404(Wake, pk=wake_id)
+    members = Member.objects.filter(created_by_id=user_id)
     if wake.created_by.id != request.user.id:
         return HttpResponseForbidden('このWakeの閲覧は許可されていません')
     context= {
         'wake': wake,
+        'members': members
     }
 
     return render(request, 'wakes/wake_detail.html', context)
