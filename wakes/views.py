@@ -69,18 +69,18 @@ def member(request):
         'members': members
     }
 
-    return render(request, 'wakes/member.html', context)
+    return render(request, 'member/member.html', context)
 
-# @login_required
-# def member_new(request):
-#     if request.method == 'POST':
-#         form = MemberForm(request.POST,)
-#         if form.is_valid():
-#             member = form.save(commit=False)
-#             member.created_by = request.user
-#             member.save()
-#             return redirect(top)
-#     else:
-#         form = MemberForm()
-#     return render(request, 'wakes/member.html', {'form': form})
+@login_required
+def member_new(request):
+    if request.method == 'POST':
+        form = MemberForm(request.POST,)
+        if form.is_valid():
+            member = form.save(commit=False)
+            member.created_by = request.user
+            member.save()
+            return redirect('member')
+    else:
+        form = MemberForm()
+    return render(request, 'member/member_new.html', {'form': form})
 
