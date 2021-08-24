@@ -221,7 +221,7 @@ box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
 
 .all-member-list-for-edit {
   width: 100%;
-  height: 390px;
+  height: 370px;
   overflow-y: scroll;
   text-align: center;
   border-bottom: 1px solid #484e60;

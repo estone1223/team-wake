@@ -49,6 +49,7 @@ def wake_detail(request, wake_id):
     user_id = request.user.id
     wake = get_object_or_404(Wake, pk=wake_id)
     members = Member.objects.filter(created_by_id=user_id)
+    members = members.order_by('name')
     if wake.created_by.id != request.user.id:
         return HttpResponseForbidden('このWakeの閲覧は許可されていません')
     context= {
@@ -65,6 +66,7 @@ def wake_classic(request):
 def member(request):
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
+    members = members.order_by('name')
     context= {
         'members': members
     }
@@ -86,6 +88,7 @@ def member_new(request):
 
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
+    members = members.order_by('name')
     context= {
         'form': form,
         'members': members,
