@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block main %}
   <div class="sub-welcome">
     <h1 class="title">Team-Wakes</h1>
@@ -10,19 +9,19 @@
   <div class="content">
     <div class="all-member-list">
       <h2 class="content-head">Member-list</h2>
-      <ul>
-      {% for member in members %}
-        <li class="member-list">{{ member.name }}</li>
-      {% endfor %}
+      <ul class="member-list-ul">
+        {% for member in members %}
+          <li class="member-list">{{ member.name }}</li>
+        {% endfor %}
       </ul>
     </div>
     <div class="function-container">
       <h2 class="content-head">Editor</h2>
-        <a class="btn btn-color btn-function" href="{% url 'member_new' %}">Add</a>
-        <br>
-        <a class="btn btn-color btn-function">Edit</a>
-        <br>
-        <a class="btn btn-color btn-function">Delete</a>
+      <a class="btn btn-color btn-function" href="{% url 'member_new' %}">Add</a>
+      <br>
+      <a class="btn btn-color btn-function">Edit</a>
+      <br>
+      <a class="btn btn-color btn-function">Delete</a>
     </div>
   </div>
 {% endblock main %}

@@ -73,14 +73,22 @@ def member(request):
 
 @login_required
 def member_new(request):
+    
     if request.method == 'POST':
         form = MemberForm(request.POST,)
         if form.is_valid():
             member = form.save(commit=False)
             member.created_by = request.user
             member.save()
-            return redirect('member')
+            return redirect('member_new')
     else:
         form = MemberForm()
-    return render(request, 'member/member_new.html', {'form': form})
+
+    user_id = request.user.id
+    members = Member.objects.filter(created_by_id=user_id)
+    context= {
+        'form': form,
+        'members': members,
+    }
+    return render(request, 'member/member_new.html', context)
 

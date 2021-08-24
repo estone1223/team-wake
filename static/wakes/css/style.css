@@ -6,6 +6,16 @@ main {
   padding: 2rem 0;
 }
 
+a {
+  display: block;
+  text-decoration: none;
+  color: rgb(241, 241, 237);
+}
+
+a:hover {
+  color: black;
+}
+
 .welcome {
   color: white;
   padding: 3rem 0;
@@ -101,6 +111,7 @@ main {
   margin: 0 24px;
   line-height: 240%;
   border-bottom: 1px solid #484e60;
+  text-align: center;
 }
 
 .team-ul {
@@ -187,8 +198,34 @@ textarea {
 width: 50%;
 border-right: 1px solid #484e60;
 height: 100%;
-overflow-y: scroll;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+border-radius: 10px;
+box-shadow: inset 0 0 5px rgba(0, 0, 0, .1);
+}
+::-webkit-scrollbar-thumb {
+background-color: #484e60;
+border-radius: 10px;
+box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
+}
+
+.member-list-ul {
+  height: 390px;
+  overflow-y: scroll;
+  margin-right: 5px;
+}
+
+.all-member-list-for-edit {
+  width: 100%;
+  height: 390px;
+  overflow-y: scroll;
+  text-align: center;
+  border-bottom: 1px solid #484e60;
+  }
 
 .function-container {
 width: 50%;
@@ -196,8 +233,16 @@ border-left: 1px solid #484e60;
 }
 
 .btn-function {
-  width: 255px;
+  width: 70%;
   margin: 50px auto 25px auto;
   background-color: #484e60;
   color: rgb(241, 241, 237);
 }
+
+.btn-container{
+  display: flex;
+}
+
+.width-50 {
+  width: 48%;
+} 

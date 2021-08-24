@@ -6,6 +6,24 @@
   <form action="" method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% bootstrap_button button_type='submit' content='登録' %}
+    <div class="btn-container">
+      <button type="submit" value="add" class="btn btn-classic width-50">
+        Add
+      </button>
+      <button type="submit" value="back" class="btn btn-classic width-50">
+        <a href="{% url 'member' %}">
+          Back
+        </a>
+      </button>
+    </div>
   </form>
+  <h2 class="content-head">Member-list</h2>
+  <div class="all-member-list-for-edit">
+
+    <ul>
+      {% for member in members %}
+        <li class="member-list">{{ member.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock main %}
