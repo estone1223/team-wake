@@ -6,8 +6,8 @@ function wakeTeam() {
   let team_a = document.getElementById('team_a');
   let team_b = document.getElementById('team_b');
 
-  team_a.innerHTML = '';
-  team_b.innerHTML = '';
+  team_a.textContent = '';
+  team_b.textContent = '';
 
   let member_list = document.getElementById('classic-member');
   let member = member_list.value.split(/\n/);
@@ -32,9 +32,9 @@ function wakeTeam() {
 
   for (let i = 0, len = user_list.length; i < len; i ++) {
     if (i % 2 == 1) {
-      team_a.insertAdjacentHTML("beforeend", "<li class='team-member'>" + user_list[i] + "</li>");
-    } else {
       team_b.insertAdjacentHTML("beforeend", "<li class='team-member'>" + user_list[i] + "</li>");
+    } else {
+      team_a.insertAdjacentHTML("beforeend", "<li class='team-member'>" + user_list[i] + "</li>");
     }
   }
   }
