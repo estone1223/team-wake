@@ -19,7 +19,7 @@ def top(request):
 @login_required
 def wake_new(request):
     if request.method == 'POST':
-        form = WakeForm(request.POST,)
+        form = WakeForm(request.POST)
         if form.is_valid():
             wake = form.save(commit=False)
             wake.created_by = request.user
@@ -64,34 +64,79 @@ def wake_classic(request):
 
 
 def member(request):
+    form = MemberForm
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
     members = members.order_by('name')
     context= {
-        'members': members
+        'members': members,
+        'form': form
     }
 
     return render(request, 'member/member.html', context)
 
-@login_required
-def member_new(request):
-    
-    if request.method == 'POST':
-        form = MemberForm(request.POST,)
-        if form.is_valid():
-            member = form.save(commit=False)
-            member.created_by = request.user
-            member.save()
-            return redirect('member_new')
-    else:
-        form = MemberForm()
-
+def member_edit_list(request):
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
     members = members.order_by('name')
     context= {
-        'form': form,
         'members': members,
     }
-    return render(request, 'member/member_new.html', context)
+
+    return render(request, 'member/member_edit_list.html', context)
+
+def member_delete_list(request):
+    user_id = request.user.id
+    members = Member.objects.filter(created_by_id=user_id)
+    members = members.order_by('name')
+    context= {
+        'members': members,
+    }
+
+    return render(request, 'member/member_delete_list.html', context)
+
+@login_required
+def member_new(request):
+    if request.method == 'POST':
+        form = MemberForm(request.POST)
+        if form.is_valid():
+            member = form.save(commit=False)
+            member.created_by = request.user
+            member.save()
+            return redirect('member')
+        else:
+            HttpResponseForbidden('uhh')
+    else:
+        HttpResponseForbidden('dame')
+
+
+
+@login_required
+def member_edit(request, member_id):
+    member = get_object_or_404(Member, pk=member_id)
+    if member.created_by.id != request.user.id:
+        return HttpResponseForbidden('このMemberの編集は許可されていません')
+    
+    if request.method == 'POST':
+        form = MemberForm(request.POST, instance=member)
+        if form.is_valid():
+            form.save()
+            return redirect('member_edit_list')
+    else:
+        form = MemberForm(instance=member)
+    return render(request, 'member/member_edit.html', {'form': form})
+
+
+
+@login_required
+def member_delete(request, member_id):
+    member = get_object_or_404(Member, pk=member_id)
+    if member.created_by.id != request.user.id:
+        return HttpResponseForbidden('このMemberの編集は許可されていません')
+    
+    if request.method == 'POST':
+        member.delete()
+    
+    return redirect('member_delete_list')
+
 

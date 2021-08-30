@@ -19,9 +19,9 @@
       <h2 class="content-head">Editor</h2>
       <a class="btn btn-color btn-function" href="{% url 'member_new' %}">Add</a>
       <br>
-      <a class="btn btn-color btn-function">Edit</a>
+      <a class="btn btn-color btn-function" href="{% url 'member_edit_list' %}">Edit</a>
       <br>
-      <a class="btn btn-color btn-function">Delete</a>
+      <a class="btn btn-color btn-function" href="{% url 'member_delete_list' %}">Delete</a>
     </div>
   </div>
 {% endblock main %}

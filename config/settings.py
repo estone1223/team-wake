@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'wakes.apps.WakesConfig',
     'accounts.apps.AccountsConfig',
     'django_bootstrap5',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
