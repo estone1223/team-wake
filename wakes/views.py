@@ -132,10 +132,9 @@ def member_edit(request, member_id):
 def member_delete(request, member_id):
     member = get_object_or_404(Member, pk=member_id)
     if member.created_by.id != request.user.id:
-        return HttpResponseForbidden('このMemberの編集は許可されていません')
+        return HttpResponseForbidden('このMemberの削除は許可されていません')
     
-    if request.method == 'POST':
-        member.delete()
+    member.delete()
     
     return redirect('member_delete_list')
 
