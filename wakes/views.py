@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 # Create your views here.
 
 def top(request):
-    wakes = Wake.objects.all()
+    wakes = Wake.objects.all().order_by().reverse()
     context = {
         'wakes': wakes,
     }
