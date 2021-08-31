@@ -20,11 +20,14 @@
       <h2 class="content-head">member</h2>
       <div class="member-container">
         <ul class="member-list-ul">
-          <a class="btn btn-edit" href="">
-            <li class="member-list">編集</li>
+          <a>
+            <li class="member-list btn btn-edit label">編集</li>
           </a>
           {% for member in members %}
-            <li class="member-list">{{ member.name }}</li>
+          <li class="member-list btn label">
+            <input type="checkbox" name="selected_member" id="{{ member.name }}" value="{{ member.name }}">
+              <label for="{{ member.name }}">{{ member.name }}</label>
+            </li>
           {% endfor %}
         </ul>
       </div>
