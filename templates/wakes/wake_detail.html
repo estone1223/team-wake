@@ -20,6 +20,9 @@
       <h2 class="content-head">member</h2>
       <div class="member-container">
         <ul class="member-list-ul">
+          <a class="btn btn-edit" href="">
+            <li class="member-list">編集</li>
+          </a>
           {% for member in members %}
             <li class="member-list">{{ member.name }}</li>
           {% endfor %}
