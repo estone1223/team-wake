@@ -11,11 +11,21 @@
       <h2 class="content-head">Member-list</h2>
       <ul class="member-list-ul">
         {% for member in members %}
-          <li class="member-list"><a href="{% url 'member_edit' member.id %}" class="wake">
-                {{ member.name }}
-              </a></li>
+          <li class="member-list">
+            <a href="{% url 'member_edit' member.id %}" class="wake">
+              {{ member.name }}
+            </a>
+          </li>
         {% endfor %}
       </ul>
+    </div>
+    <div class="function-container">
+      <h2 class="content-head">menu</h2>
+      <a class="btn btn-color btn-function" href="{% url 'member' %}">メンバー一覧へ</a>
+      <br>
+      <a class="btn btn-color btn-function" href="{% url 'member_new_list' %}">追加画面へ</a>
+      <br>
+      <a class="btn btn-color btn-function" href="{% url 'member_edit_list' %}">削除画面へ</a>
     </div>
   </div>
 {% endblock main %}

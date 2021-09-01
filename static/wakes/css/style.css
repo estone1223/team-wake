@@ -276,3 +276,7 @@ border-left: 1px solid #484e60;
 .width-50 {
   width: 48%;
 } 
+
+.editor-btn {
+  width: 50%;
+}
