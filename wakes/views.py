@@ -62,7 +62,17 @@ def wake_detail(request, wake_id):
 def wake_classic(request):
     return render(request, 'wakes/wake_classic.html')
 
+@login_required
+def member_delete(request, member_id):
+    member = get_object_or_404(Member, pk=member_id)
+    if member.created_by.id != request.user.id:
+        return HttpResponseForbidden('このMemberの削除は許可されていません')
+    
+    member.delete()
+    
+    return redirect('member_delete_list')
 
+@login_required
 def member(request):
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
@@ -73,6 +83,7 @@ def member(request):
 
     return render(request, 'member/member.html', context)
 
+@login_required
 def member_new_list(request):
     form = MemberForm()
     user_id = request.user.id
@@ -85,6 +96,7 @@ def member_new_list(request):
 
     return render(request, 'member/member_new_list.html', context)
 
+@login_required
 def member_edit_list(request):
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
@@ -95,6 +107,7 @@ def member_edit_list(request):
 
     return render(request, 'member/member_edit_list.html', context)
 
+@login_required
 def member_delete_list(request):
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
