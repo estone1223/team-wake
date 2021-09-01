@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block exheader %}
-  <script src="{% static 'wakes/js/main.js' %}"></script>
+  <script src="{% static 'wakes/js/wakes.js' %}"></script>
 {% endblock exheader %}
 
 {% block main %}
@@ -20,12 +20,15 @@
       <h2 class="content-head">member</h2>
       <div class="member-container">
         <ul class="member-list-ul">
-          {% for member in members %}
-          <li class="label">
-            <input type="checkbox" name="selected_member" id="{{ member.name }}" value="{{ member.name }}">
-              <label for="{{ member.name }}">{{ member.name }}</label>
-            </li>
-          {% endfor %}
+          <form name="member-form">
+            {% for member in members %}
+              <li class="label">
+                <input type="checkbox" name="selected-member" id="{{ member.name }}" value="{{ member.name }}">
+                <label for="{{ member.name }}">{{ member.name }}</label>
+              </li>
+
+            {% endfor %}
+          </form>
         </ul>
       </div>
       <button type="button" value="Wake!" class="btn btn-color btn-classic" id="try-js" onclick="wakeTeam()">Wake!</button>
