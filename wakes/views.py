@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 # Create your views here.
 
 def top(request):
-    wakes = Wake.objects.all().order_by().reverse()
+    wakes = Wake.objects.all().order_by('-id')
     context = {
         'wakes': wakes,
     }
@@ -64,16 +64,26 @@ def wake_classic(request):
 
 
 def member(request):
-    form = MemberForm
     user_id = request.user.id
     members = Member.objects.filter(created_by_id=user_id)
     members = members.order_by('name')
     context= {
         'members': members,
-        'form': form
     }
 
     return render(request, 'member/member.html', context)
+
+def member_new_list(request):
+    form = MemberForm()
+    user_id = request.user.id
+    members = Member.objects.filter(created_by_id=user_id)
+    members = members.order_by('name')
+    context= {
+        'members': members,
+        'form': form,
+    }
+
+    return render(request, 'member/member_new_list.html', context)
 
 def member_edit_list(request):
     user_id = request.user.id
@@ -103,11 +113,9 @@ def member_new(request):
             member = form.save(commit=False)
             member.created_by = request.user
             member.save()
-            return redirect('member')
-        else:
-            HttpResponseForbidden('uhh')
+            return redirect('member_new_list')
     else:
-        HttpResponseForbidden('dame')
+        return HttpResponseForbidden('正規の手続きを踏んでください')
 
 
 
