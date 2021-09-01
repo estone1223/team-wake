@@ -8,7 +8,7 @@
 {% block main %}
   <div class="sub-welcome">
     <h1 class="title">{{ wake.name }}</h1>
-    <p class="subtitle">{{ wake.description }}</p>
+    <p class="subtitle">{{ wake.description }}</p><a href="{% url 'wake_delete' wake.id %}">x</a>
   </div>
   <div class="content">
     <div class="team-a">

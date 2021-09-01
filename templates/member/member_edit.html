@@ -6,6 +6,8 @@
   <form action="" method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% bootstrap_button button_type='submit' content='更新' %}
+    <button type="submit"  class="btn btn-classic width-50">
+        save
+      </button>
   </form>
 {% endblock main %}

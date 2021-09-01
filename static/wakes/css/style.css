@@ -127,7 +127,7 @@ input[type=checkbox]:checked + label {
 /* detail */
 
 .content {
-  height: 430px;
+  height: 40px;
   width: auto;
   display: flex;
   margin-left: 1%;
@@ -192,14 +192,14 @@ input[type=checkbox]:checked + label {
 }
 
 .classic-member {
-
+  padding-right: 15%;
   background-color: rgb(241, 241, 237);
 }
 
 textarea {
   line-height: 250%;
   width: 90%;
-  height: 380px;
+  height: 350px;
   border: none;
   resize: none;
   text-align: center;
@@ -220,14 +220,13 @@ textarea {
 }
 
 .member-container {
-  height: 390px;
+  height: 360px;
 }
 
 /* member */
 
 .all-member-list {
 width: 50%;
-border-right: 1px solid #484e60;
 height: 100%;
 }
 
@@ -245,14 +244,14 @@ box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
 }
 
 .member-list-ul {
-  height: 390px;
+  height: 360px;
   overflow-y: scroll;
   margin-right: 5px;
 }
 
 .all-member-list-for-edit {
   width: 100%;
-  height: 370px;
+  height: 340px;
   overflow-y: scroll;
   text-align: center;
   border-bottom: 1px solid #484e60;
@@ -260,7 +259,6 @@ box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
 
 .function-container {
 width: 50%;
-border-left: 1px solid #484e60;
 }
 
 .btn-function {

@@ -64,7 +64,7 @@ def wake_classic(request):
 
 @login_required
 def wake_delete(request, wake_id):
-    wake = get_object_or_404(Member, pk=wake_id)
+    wake = get_object_or_404(Wake, pk=wake_id)
     if wake.created_by.id != request.user.id:
         return HttpResponseForbidden('このWakeの削除は許可されていません')
     
