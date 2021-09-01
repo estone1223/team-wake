@@ -15,9 +15,7 @@ function wakeTeam() {
   let user_list = [];
 
   for (let i = 0, len = member.length; i < len; i++) {
-    if (member[i] != '') {
       user_list.push(member[i]);
-    }
   }
 
   // 配分用リストの要素に重みをつけ、ソート
