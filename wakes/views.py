@@ -63,14 +63,14 @@ def wake_classic(request):
     return render(request, 'wakes/wake_classic.html')
 
 @login_required
-def member_delete(request, member_id):
-    member = get_object_or_404(Member, pk=member_id)
-    if member.created_by.id != request.user.id:
-        return HttpResponseForbidden('このMemberの削除は許可されていません')
+def wake_delete(request, wake_id):
+    wake = get_object_or_404(Member, pk=wake_id)
+    if wake.created_by.id != request.user.id:
+        return HttpResponseForbidden('このWakeの削除は許可されていません')
     
-    member.delete()
+    wake.delete()
     
-    return redirect('member_delete_list')
+    return redirect('top')
 
 @login_required
 def member(request):
