@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3!7(e*p6#(piaxvq5om60%(1d_f4cp62a-vnxib@tupvm61_41'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -132,4 +132,13 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
 
-django_heroku.settings(locals())
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+    
+# Debug=Falseの時のみ実行する設定
+if not DEBUG:
+    import django_heroku
+    django_heroku.settings(locals())
