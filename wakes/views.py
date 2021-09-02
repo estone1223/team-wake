@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 # Create your views here.
-
+# トップページ用View
 def top(request):
     wakes = Wake.objects.all().order_by('-id')
     context = {
@@ -15,7 +15,7 @@ def top(request):
     }
     return render(request, 'wakes/top.html', context)
 
-
+# wake用View
 @login_required
 def wake_new(request):
     if request.method == 'POST':
@@ -50,8 +50,10 @@ def wake_detail(request, wake_id):
     wake = get_object_or_404(Wake, pk=wake_id)
     members = Member.objects.filter(created_by_id=user_id)
     members = members.order_by('name')
+
     if wake.created_by.id != request.user.id:
         return HttpResponseForbidden('このWakeの閲覧は許可されていません')
+
     context= {
         'wake': wake,
         'members': members
@@ -65,6 +67,7 @@ def wake_classic(request):
 @login_required
 def wake_delete(request, wake_id):
     wake = get_object_or_404(Wake, pk=wake_id)
+
     if wake.created_by.id != request.user.id:
         return HttpResponseForbidden('このWakeの削除は許可されていません')
     
@@ -72,6 +75,10 @@ def wake_delete(request, wake_id):
     
     return redirect('top')
 
+
+# member用View
+
+# member一覧用View
 @login_required
 def member(request):
     user_id = request.user.id
@@ -83,6 +90,8 @@ def member(request):
 
     return render(request, 'member/member.html', context)
 
+
+# フォームページ用View
 @login_required
 def member_new_list(request):
     form = MemberForm()
@@ -118,6 +127,8 @@ def member_delete_list(request):
 
     return render(request, 'member/member_delete_list.html', context)
 
+
+# 実行用View
 @login_required
 def member_new(request):
     if request.method == 'POST':
