@@ -96,4 +96,4 @@ def member_delete(request, member_id):
     
     member.delete()
     
-    return redirect('member_delete_list')
+    return redirect('member:member_delete_list')

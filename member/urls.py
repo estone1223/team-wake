@@ -8,13 +8,13 @@ urlpatterns = [
     path('', member, name="member"),
 
     # フォーム用ルーティング
-    path('member/member_new_list', member_new_list, name="member_new_list"),
-    path('member/edit/member_list', member_edit_list, name="member_edit_list"),
-    path('member/delete/member_list', member_delete_list, name="member_delete_list"),
+    path('member_new_list', member_new_list, name="member_new_list"),
+    path('edit/member_list', member_edit_list, name="member_edit_list"),
+    path('delete/member_list', member_delete_list, name="member_delete_list"),
 
     # 実行用ルーティング
-    path('member/member_new', member_new, name="member_new"),
-    path('member/<int:member_id>/edit', member_edit, name="member_edit"),
-    path('member/<int:member_id>/delete', member_delete, name="member_delete"),
+    path('member_new', member_new, name="member_new"),
+    path('<int:member_id>/edit', member_edit, name="member_edit"),
+    path('<int:member_id>/delete', member_delete, name="member_delete"),
 
 ]
