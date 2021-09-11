@@ -12,7 +12,7 @@
       <ul class="member-list-ul">
         {% for member in members %}
           <li class="member-list">
-            <a href="{% url 'member_edit' member.id %}" class="wake">
+            <a href="{% url 'member:member_edit' member.id %}" class="wake">
               {{ member.name }}
             </a>
           </li>
@@ -21,11 +21,11 @@
     </div>
     <div class="function-container">
       <h2 class="content-head">menu</h2>
-      <a class="btn btn-color btn-function" href="{% url 'member' %}">メンバー一覧へ</a>
+      <a class="btn btn-color btn-function" href="{% url 'member:member' %}">メンバー一覧へ</a>
       <br>
-      <a class="btn btn-color btn-function" href="{% url 'member_new_list' %}">追加画面へ</a>
+      <a class="btn btn-color btn-function" href="{% url 'member:member_new_list' %}">追加画面へ</a>
       <br>
-      <a class="btn btn-color btn-function" href="{% url 'member_delete_list' %}">削除画面へ</a>
+      <a class="btn btn-color btn-function" href="{% url 'member:member_delete_list' %}">削除画面へ</a>
       <br>
       <a class="btn btn-color btn-function" href="{% url 'top' %}">Top-Page</a>
     </div>

@@ -81,7 +81,7 @@ def member_edit(request, member_id):
         form = MemberForm(request.POST, instance=member)
         if form.is_valid():
             form.save()
-            return redirect('member_edit_list')
+            return redirect('member:member_edit_list')
     else:
         form = MemberForm(instance=member)
     return render(request, 'member/member_edit.html', {'form': form})
