@@ -3,7 +3,7 @@
 
 {% block main %}
   <h1>Memberの登録</h1>
-  <form action="{% url 'member_new' %}" method="post">
+  <form action="{% url 'member:member_new' %}" method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
     <div class="btn-container">
@@ -11,7 +11,7 @@
         Add
       </button>
       <button type="submit" value="back" class="btn btn-classic width-50">
-        <a href="{% url 'member' %}">
+        <a href="{% url 'member:member' %}">
           メンバー一覧へ
         </a>
       </button>

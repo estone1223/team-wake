@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'wakes.apps.WakesConfig',
     'accounts.apps.AccountsConfig',
+    'member.apps.MemberConfig',
     'django_bootstrap5',
     'django_extensions',
 ]
