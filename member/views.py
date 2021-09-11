@@ -65,7 +65,7 @@ def member_new(request):
             member = form.save(commit=False)
             member.created_by = request.user
             member.save()
-            return redirect('member_new_list')
+            return redirect('member:member_new_list')
     else:
         return HttpResponseForbidden('正規の手続きを踏んでください')
 

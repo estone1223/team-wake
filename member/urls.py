@@ -1,9 +1,12 @@
-from member.views import member_new, member_new, member_new_list, member_edit_list, member_delete_list, member_edit, member_delete
+from member.views import member_new, member_new, member_new_list, member_edit_list, member_delete_list, member_edit, member_delete, member
 from django.urls import path
 
 app_name = 'member'
 
 urlpatterns = [
+    #一覧
+    path('', member, name="member"),
+
     # フォーム用ルーティング
     path('member/member_new_list', member_new_list, name="member_new_list"),
     path('member/edit/member_list', member_edit_list, name="member_edit_list"),
