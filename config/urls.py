@@ -11,5 +11,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('wakes/', include('wakes.urls')),
     # member関係
-    path('member/', include('member.urls'), name='member'),
+    path('member/', include('member.urls')),
 ]

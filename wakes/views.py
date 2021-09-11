@@ -1,9 +1,9 @@
 from django import forms
 from django.http.response import HttpResponseForbidden
-from wakes.form import WakeForm, MemberForm
+from wakes.form import WakeForm
 from wakes.models import Member, Wake
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
