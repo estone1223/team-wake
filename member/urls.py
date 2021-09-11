@@ -1,8 +1,7 @@
-from wakes.views import member_new, member, member_new, member_new_list, member_edit_list, member_delete_list, member_edit, member_delete
+from member.views import member_new, member_new, member_new_list, member_edit_list, member_delete_list, member_edit, member_delete
 from django.urls import path
 
-
-
+app_name = 'member'
 
 urlpatterns = [
     # フォーム用ルーティング
