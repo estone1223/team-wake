@@ -10,9 +10,6 @@ urlpatterns = [
     path('<int:wake_id>/delete/', wake_delete, name='wake_delete'),
     path('<int:wake_id>/edit/', wake_edit, name='wake_edit'),
 
-    #wakeにmemberを登録する
-    path('<int:wake_id>/register/', wake_register, name='register'),
-
     # 簡易版ルーティング
     path('classic/', wake_classic, name='wake_classic'),
 

@@ -8,10 +8,6 @@ from wakes.models import Member, Wake
 
 
 class WakeForm(forms.ModelForm):
-    # member = forms.ModelMultipleChoiceField(
-    #     queryset=Member.objects.filter(created_by=id),
-    #     widget=forms.CheckboxSelectMultiple) 
-
     class Meta:
         model = Wake
         fields = ('name', 'description', 'member')

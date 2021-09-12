@@ -72,20 +72,3 @@ def wake_delete(request, wake_id):
     
     return redirect('top')
 
-
-
-@login_required
-def wake_register(request, wake_id):
-    wake = get_object_or_404(Wake, pk=wake_id)
-    if wake.created_by.id != request.user.id:
-        return HttpResponseForbidden('このWakeの編集は許可されていません')
-    
-    if request.method == 'POST':
-        form = WakeForm(request.POST, instance=wake)
-        if form.is_valid():
-            form.save()
-            return redirect('wake_detail', wake_id=wake_id)
-    else:
-        form = WakeForm(instance=wake)
-    return render(request, 'wakes/wake_edit.html', {'form': form})
-
