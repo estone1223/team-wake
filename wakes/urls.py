@@ -1,4 +1,4 @@
-from wakes.views import wake_new, wake_detail, wake_edit, wake_classic, wake_delete, wake_register
+from wakes.views import wake_new, wake_detail, wake_edit, wake_classic, wake_delete
 from django.urls import path
 
 app_name = 'wakes'
