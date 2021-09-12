@@ -39,14 +39,13 @@ def wake_edit(request, wake_id):
         form = WakeForm(request.POST, instance=wake)
         if form.is_valid():
             form.save()
-            return redirect('top')
+            return redirect('wakes:wake_detail', wake_id)
     else:
         form = WakeForm(instance=wake)
     return render(request, 'wakes/wake_edit.html', {'form': form})
 
 @login_required
 def wake_detail(request, wake_id):
-    user_id = request.user.id
     wake = get_object_or_404(Wake, pk=wake_id)
 
     if wake.created_by.id != request.user.id:
