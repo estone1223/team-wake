@@ -9,7 +9,7 @@
   <div class="sub-welcome">
     <h1 class="title">{{ wake.name }}</h1>
     <p class="subtitle">{{ wake.description }}</p>
-    <a  class="btn btn-color" href="{% url 'wakes:wake_delete' wake.id %}">このWakesを削除する</a>
+    <a class="btn btn-color" href="{% url 'wakes:wake_delete' wake.id %}">このWakesを削除する</a>
   </div>
   <div class="content">
     <div class="team-a">
@@ -23,11 +23,12 @@
         <ul class="member-list-ul">
           <form name="member-form">
             {% for member in members %}
-              <li class="label">
-                <input type="checkbox" name="selected-member" id="{{ member.name }}" value="{{ member.name }}">
-                <label for="{{ member.name }}">{{ member.name }}</label>
-              </li>
-
+              {% if member.wake_set %}
+                <li class="label">
+                  <input type="checkbox" name="selected-member" id="{{ member.name }}" value="{{ member.name }}">
+                  <label for="{{ member.name }}">{{ member.name }}</label>
+                </li>
+              {% endif %}
             {% endfor %}
           </form>
         </ul>

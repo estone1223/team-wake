@@ -48,7 +48,7 @@ def wake_edit(request, wake_id):
 def wake_detail(request, wake_id):
     user_id = request.user.id
     wake = get_object_or_404(Wake, pk=wake_id)
-    members = Member.objects.filter(created_by_id=user_id)
+    members = wake.member.all()
     members = members.order_by('name')
 
     if wake.created_by.id != request.user.id:

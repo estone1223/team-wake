@@ -1,4 +1,4 @@
-from wakes.views import wake_new, wake_detail, wake_edit, wake_classic, wake_delete
+from wakes.views import wake_new, wake_detail, wake_edit, wake_classic, wake_delete, wake_register
 from django.urls import path
 
 app_name = 'wakes'
@@ -9,6 +9,9 @@ urlpatterns = [
     path('<int:wake_id>/', wake_detail, name='wake_detail'),
     path('<int:wake_id>/delete/', wake_delete, name='wake_delete'),
     path('<int:wake_id>/edit/', wake_edit, name='wake_edit'),
+
+    #wakeにmemberを登録する
+    path('<int:wake_id>/register/', wake_register, name='register'),
 
     # 簡易版ルーティング
     path('classic/', wake_classic, name='wake_classic'),
