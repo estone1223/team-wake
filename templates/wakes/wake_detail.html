@@ -24,7 +24,7 @@
           <form name="member-form">
             {% for member in wake.member.all %}
                 <li class="label">
-                  <input type="checkbox" name="selected-member" id="{{ member.name }}" value="{{ member.name }}">
+                  <input type="checkbox" name="selected-member" id="{{ member.name }}" value="{{ member.name }}" checked>
                   <label for="{{ member.name }}">{{ member.name }}</label>
                 </li>
             {% endfor %}
