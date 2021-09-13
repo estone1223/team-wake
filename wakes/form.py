@@ -16,6 +16,11 @@ class RegisterForm(forms.ModelForm):
     class Meta:
         model = Wake
         fields = ('name', 'description', 'member')
+    
+    def __init__(self, *args, **kwargs):
+        super(RegisterForm.self).__init__(*args, **kwargs)
+        user_id = kwargs.get('instance').user.id
+        self.Meta.fields['member'].queryset = Member.objects.filter(created_by=user_id)
 
 
 class MemberForm(forms.ModelForm):

@@ -36,6 +36,7 @@ def wake_edit(request, wake_id):
         return HttpResponseForbidden('このWakeの編集は許可されていません')
     
     if request.method == 'POST':
+        user_id = request.user
         form = RegisterForm(request.POST, instance=wake)
         if form.is_valid():
             form.save()
