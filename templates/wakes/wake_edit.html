@@ -2,11 +2,15 @@
 {% load django_bootstrap5 %}
 
 {% block main %}
-  <h1>Wakeの編集</h1>
+  <h1>Memberの編集</h1>
   <form action="" method="post">
     {% csrf_token %}
-    {% bootstrap_form form %}
+    <div class="member-list-form">
+      {% bootstrap_form form %}
+    </div>
     <input type="hidden" value="{{ wake.id }}">
-    {% bootstrap_button button_type='submit' content='更新' %}
+    <button type="submit" class="btn btn-classic width-50">
+      更新
+    </button>
   </form>
 {% endblock main %}

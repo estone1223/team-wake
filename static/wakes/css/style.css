@@ -279,3 +279,22 @@ width: 50%;
 .editor-btn {
   width: 50%;
 }
+
+.form-check-label {
+  display: block;
+  margin: 10px;
+  margin-right: 30px;
+  border-radius: 4px;
+  border: 1px solid #484e60;
+  text-align: center;
+  line-height: 3;
+}
+
+.member-list-form {
+  height: 360px;
+  max-width: 480px;
+  overflow-y: scroll;
+  margin-right: 5px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
