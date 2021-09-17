@@ -1,6 +1,6 @@
 from django import forms
 from django.http.response import HttpResponseForbidden
-from wakes.form import WakeForm
+from wakes.form import SelectMemberForm, WakeForm
 from wakes.models import Member, Wake
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -36,27 +36,24 @@ def wake_edit(request, wake_id):
         return HttpResponseForbidden('このWakeの編集は許可されていません')
     
     if request.method == 'POST':
-        form = WakeForm(request.POST, instance=wake)
+        user_id = request.user
+        form = SelectMemberForm(request.POST, instance=wake)
         if form.is_valid():
             form.save()
-            return redirect('wake_detail', wake_id=wake_id)
+            return redirect('wakes:wake_detail', wake_id)
     else:
-        form = WakeForm(instance=wake)
+        form = SelectMemberForm(instance=wake)
     return render(request, 'wakes/wake_edit.html', {'form': form})
 
 @login_required
 def wake_detail(request, wake_id):
-    user_id = request.user.id
     wake = get_object_or_404(Wake, pk=wake_id)
-    members = Member.objects.filter(created_by_id=user_id)
-    members = members.order_by('name')
 
     if wake.created_by.id != request.user.id:
         return HttpResponseForbidden('このWakeの閲覧は許可されていません')
 
     context= {
         'wake': wake,
-        'members': members
     }
 
     return render(request, 'wakes/wake_detail.html', context)
@@ -74,8 +71,4 @@ def wake_delete(request, wake_id):
     wake.delete()
     
     return redirect('top')
-
-
-
-
 

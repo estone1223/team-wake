@@ -6,6 +6,7 @@
   <form action="" method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
+    <input type="hidden" value="{{ wake.id }}">
     {% bootstrap_button button_type='submit' content='更新' %}
   </form>
 {% endblock main %}

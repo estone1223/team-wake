@@ -16,7 +16,7 @@ class Member(models.Model):
 
 class Wake(models.Model):
     name = models.CharField('Wake名', max_length=50)
-    description = models.TextField('説明文', max_length=48, default='', null=False, blank=True)
+    description = models.CharField('説明', max_length=48, default='', null=False, blank=True)
     member = models.ManyToManyField(Member, related_name='members', related_query_name='member')
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name="作成者", on_delete=models.CASCADE)
 
