@@ -12,18 +12,20 @@ class WakeForm(forms.ModelForm):
         model = Wake
         fields = ('name', 'description')
 
-class RegisterForm(forms.ModelForm):
-    class Meta:
-        model = Wake
-        fields = ('name', 'description', 'member')
-    
-    def __init__(self, *args, **kwargs):
-        super(RegisterForm.self).__init__(*args, **kwargs)
-        user_id = kwargs.get('instance').user.id
-        self.Meta.fields['member'].queryset = Member.objects.filter(created_by=user_id)
-
 
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
         fields = ('name',)
+
+
+class SelectMemberForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        user_id = kwargs.get('instance').created_by.id
+        self.fields['member'].queryset = Member.objects.filter(created_by=user_id)
+
+
+    class Meta:
+        model = Wake
+        fields = ('member',)

@@ -1,6 +1,6 @@
 from django import forms
 from django.http.response import HttpResponseForbidden
-from wakes.form import WakeForm, RegisterForm
+from wakes.form import SelectMemberForm, WakeForm
 from wakes.models import Member, Wake
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -37,12 +37,12 @@ def wake_edit(request, wake_id):
     
     if request.method == 'POST':
         user_id = request.user
-        form = RegisterForm(request.POST, instance=wake)
+        form = SelectMemberForm(request.POST, instance=wake)
         if form.is_valid():
             form.save()
             return redirect('wakes:wake_detail', wake_id)
     else:
-        form = RegisterForm(instance=wake)
+        form = SelectMemberForm(instance=wake)
     return render(request, 'wakes/wake_edit.html', {'form': form})
 
 @login_required
