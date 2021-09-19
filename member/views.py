@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.http.response import HttpResponseForbidden
 from wakes.form import MemberForm
 from wakes.models import Member
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 # member用View
 
@@ -65,7 +66,7 @@ def member_new(request):
             member = form.save(commit=False)
             member.created_by = request.user
             member.save()
-            return redirect('member:member_new_list')
+            return redirect(request.META.get('HTTP_REFERER'))
     else:
         return HttpResponseForbidden('正規の手続きを踏んでください')
 
@@ -97,17 +98,3 @@ def member_delete(request, member_id):
     member.delete()
     
     return redirect('member:member_delete_list')
-
-
-# wake編集でのmember追加用
-@login_required
-def member_add(request):
-    if request.method == 'POST':
-        form = MemberForm(request.POST)
-        if form.is_valid():
-            member = form.save(commit=False)
-            member.created_by = request.user
-            member.save()
-            return redirect('member:member')
-    else:
-        return HttpResponseForbidden('正規の手続きを踏んでください')

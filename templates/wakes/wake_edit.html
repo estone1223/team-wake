@@ -17,11 +17,10 @@
       </form>
     </div>
     <div class="function-container">
-      <form action="{% url 'member:member_add' %}" method="post">
+      <form action="{% url 'member:member_new' %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form_add %}
         <div class="btn-container">
-          <input type="hidden" value="{{ wake.id }}">
           <button type="submit" value="add" class="btn btn-classic width-50">
             Add
           </button>

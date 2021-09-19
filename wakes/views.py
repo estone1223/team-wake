@@ -44,6 +44,7 @@ def wake_edit(request, wake_id):
     else:
         form = SelectMemberForm(instance=wake)
     return render(request, 'wakes/wake_edit.html', {
+        'wake': wake,
         'form': form,
         'form_add': form_add,
     })
