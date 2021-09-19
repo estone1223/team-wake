@@ -97,3 +97,17 @@ def member_delete(request, member_id):
     member.delete()
     
     return redirect('member:member_delete_list')
+
+
+# wake編集でのmember追加用
+@login_required
+def member_add(request):
+    if request.method == 'POST':
+        form = MemberForm(request.POST)
+        if form.is_valid():
+            member = form.save(commit=False)
+            member.created_by = request.user
+            member.save()
+            return redirect('member:member')
+    else:
+        return HttpResponseForbidden('正規の手続きを踏んでください')

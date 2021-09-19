@@ -3,14 +3,30 @@
 
 {% block main %}
   <h1>Memberの編集</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-    <div class="member-list-form">
-      {% bootstrap_form form %}
+  <div class="content">
+    <div class="all-member-list">
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="member-list-form">
+          {% bootstrap_form form %}
+        </div>
+        <input type="hidden" value="{{ wake.id }}">
+        <button type="submit" class="btn btn-classic width-50">
+          更新
+        </button>
+      </form>
     </div>
-    <input type="hidden" value="{{ wake.id }}">
-    <button type="submit" class="btn btn-classic width-50">
-      更新
-    </button>
-  </form>
+    <div class="function-container">
+      <form action="{% url 'member:member_add' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form_add %}
+        <div class="btn-container">
+          <input type="hidden" value="{{ wake.id }}">
+          <button type="submit" value="add" class="btn btn-classic width-50">
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock main %}
